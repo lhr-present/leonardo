@@ -1,0 +1,6 @@
+requests>=2.32
+python-dotenv>=1.0
+schedule>=1.2
+numpy>=1.26
+tweepy>=4.14
+py-clob-client>=0.34
