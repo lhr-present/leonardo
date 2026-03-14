@@ -1,0 +1,18 @@
+[Unit]
+Description=Leonardo — Sports Prediction Scheduler
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=hlnx4
+WorkingDirectory=/home/hlnx4/leonardo
+ExecStart=/usr/bin/python3 /home/hlnx4/leonardo/scheduler.py
+Restart=on-failure
+RestartSec=30
+StandardOutput=append:/home/hlnx4/leonardo/leonardo.log
+StandardError=append:/home/hlnx4/leonardo/leonardo.log
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target
