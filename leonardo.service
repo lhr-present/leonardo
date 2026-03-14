@@ -2,17 +2,18 @@
 Description=Leonardo — Sports Prediction Scheduler
 After=network-online.target
 Wants=network-online.target
+StartLimitIntervalSec=60
+StartLimitBurst=5
 
 [Service]
 Type=simple
-User=hlnx4
 WorkingDirectory=/home/hlnx4/leonardo
-ExecStart=/usr/bin/python3 /home/hlnx4/leonardo/scheduler.py
-Restart=on-failure
-RestartSec=30
+ExecStart=/home/hlnx4/anaconda3/bin/python3 /home/hlnx4/leonardo/scheduler.py
+Restart=always
+RestartSec=10
 StandardOutput=append:/home/hlnx4/leonardo/leonardo.log
 StandardError=append:/home/hlnx4/leonardo/leonardo.log
 Environment=PYTHONUNBUFFERED=1
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=default.target
